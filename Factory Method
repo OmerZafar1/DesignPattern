@@ -1,1 +1,91 @@
+using System;
+using System.Collections.Generic;
+
+namespace FactoryMethod
+{
+    abstract class Ingredient { }
+
+    class Bread : Ingredient { }
+
+    class Turkey : Ingredient { }
+
+    class Lettuce : Ingredient { }
+
+    class Mayonnaise : Ingredient { }
+
+    abstract class Sandwich
+    {
+        private List<Ingredient> _ingredients = new List<Ingredient>();
+
+        public Sandwich(List<Ingredient> ingredients)
+        {
+            _ingredients = ingredients;
+        }
+
+        public List<Ingredient> Ingredients
+        {
+            get { return _ingredients; }
+        }
+    }
+
+    class TurkeySandwich : Sandwich
+    {
+        public TurkeySandwich(List<Ingredient> ingredients) : base(ingredients)
+        {
+        }
+    }
+
+    class Dagwood : Sandwich
+    {
+        public Dagwood(List<Ingredient> ingredients) : base(ingredients)
+        {
+        }
+    }
+
+    static class SandwichFactory
+    {
+        public static Sandwich CreateSandwich(string sandwichType)
+        {
+            List<Ingredient> ingredients = new List<Ingredient>();
+
+            switch (sandwichType)
+            {
+                case "turkey":
+                    ingredients.Add(new Bread());
+                    ingredients.Add(new Mayonnaise());
+                    ingredients.Add(new Lettuce());
+                    ingredients.Add(new Turkey());
+                    ingredients.Add(new Turkey());
+                    ingredients.Add(new Bread());
+                    return new TurkeySandwich(ingredients);
+
+                case "dagwood":
+                    ingredients.Add(new Bread());
+                    ingredients.Add(new Turkey());
+                    ingredients.Add(new Turkey());
+                    ingredients.Add(new Lettuce());
+                    ingredients.Add(new Lettuce());
+                    ingredients.Add(new Mayonnaise());
+                    ingredients.Add(new Bread());
+                    return new Dagwood(ingredients);
+
+                default:
+                    throw new ArgumentException("Invalid sandwich type");
+            }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Sandwich dagwoodSandwich = SandwichFactory.CreateSandwich("dagwood");
+            Console.WriteLine("Ingredients in Dagwood sandwich:");
+            foreach (Ingredient ingredient in dagwoodSandwich.Ingredients)
+            {
+                Console.WriteLine("- " + ingredient.GetType().Name);
+            }
+        }
+    }
+}
 
