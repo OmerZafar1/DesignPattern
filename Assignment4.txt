@@ -1,0 +1,493 @@
+Q1)
+
+import 'dart:io';
+
+void main() {
+  List<int> numbers = [];
+
+  for (int i = 0; i < 10; i++) {
+    print("Enter a number:");
+    int number = int.parse(stdin.readLineSync()!);
+    numbers.add(number);
+  }
+
+  print("Even numbers in the list:");
+
+  for (int i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 == 0) {
+      print(numbers[i]);
+    }
+  }
+}
+
+
+Q2)
+import 'dart:io';
+
+void main() {
+  int num = int.parse(stdin.readLineSync()!);
+  int a = 0;
+  int b = 1;
+  int sum = 0;
+  print("$a $b");
+
+  for (int i = 2; i < num; i++) {
+    sum = a + b;
+    print(sum);
+    a = b;
+    b = sum;
+  }
+}
+
+Q3)
+
+import 'dart:io';
+import 'dart:math';
+
+void main() {
+  print("Enter a number:");
+  int number = int.parse(stdin.readLineSync()!);
+
+  bool isPrime = number > 1;
+
+  for (int i = 2; i <= sqrt(number); i++) {
+    if (number % i == 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime) {
+    print('$number is a prime number.');
+  } else {
+    print('$number is not a prime number.');
+  }
+}
+
+
+Q4)
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number:");
+  int number = int.parse(stdin.readLineSync()!);
+
+  
+  int factorial = 1;
+  int i = 1;
+  
+  while (i <= number) {
+    factorial = factorial * i;
+    i++;
+  }
+
+  print("The factorial of $number is $factorial.");
+}
+
+  
+}
+
+Q5)
+
+import 'dart:io';
+
+void main() {
+  print("Enter a Range how many numbers you want:");
+  int number = int.parse(stdin.readLineSync());
+  int sum = 0;
+  int i = 1;
+  print("Enter a number:");
+  while (i <= number) {
+    int number1 = int.parse(stdin.readLineSync());
+    sum = number1 + sum;
+    i++;
+  }
+  print("Sum = $sum");
+}
+
+
+Q6)
+
+import 'dart:io';
+
+void main() {
+  List<int> numbers = [];
+
+  for (int i = 0; i < 10; i++) {
+    numbers.add(int.parse(stdin.readLineSync()));
+  }
+
+  int largest = numbers[0];
+  for (int i = 0; i < 10; i++) {
+    if (largest < numbers[i]) {
+      largest = numbers[i];
+    }
+  }
+
+  print("Largest: $largest");
+}
+
+
+Q7)
+import 'dart:io';
+
+void main() {
+  print("Enter the table number:");
+  int tablenumber = int.parse(stdin.readLineSync());
+
+  for (int i = 1; i <= 10; i++) {
+    print('$tablenumber x $i = ${tablenumber * i}');
+  }
+}
+
+Q9) Palindrome
+
+void main() {
+  String input = "radar";
+  String reversedStr = '';
+  
+  int i = input.length - 1;
+  while (i >= 0) {
+    reversedStr += input[i];
+    i--;
+  }
+  
+  if (input == reversedStr) {
+    print('$input is a palindrome.');
+  } else {
+    print('$input is not a palindrome.');
+  }
+}
+
+
+Q10)
+
+import 'dart:io';
+
+void main() {
+  print("Enter a number:");
+  int num = int.parse(stdin.readLineSync());
+  
+  for (int i = 1; i <= num; i++) {
+    int result = i * i * i;
+    print("Number is: $i and cube of $i is $result");
+  }
+}
+
+
+Q11)
+
+void main() {
+  int rows = 4;
+  for (int i = 0; i < rows; i++) {
+    String stars = "";
+    for (int j = 0; j <= i; j++) {
+      stars += "*";
+    }
+    print(stars);
+  }
+}
+
+Q12)
+
+void main() {
+  int rows = 4;
+  for (int i = 1; i <= rows; i++) {
+    String numbers = "";
+    for (int j = 1; j <= i; j++) {
+      numbers += "$j";
+    }
+    print(numbers);
+  }
+}
+
+Q13)
+
+void main() {
+  int rows = 4;
+  for (int i = 1; i <= rows; i++) {
+    String numbers = "";
+    for (int j = 1; j <= i; j++) {
+      String number = "${j < 10 ? "0" : ""}$j";
+      numbers += number;
+    }
+    print(numbers);
+  }
+}
+
+Q14)
+
+void main() {
+  int rows = 10;
+  for (int i = 1; i <= rows; i++) {
+    for (int j = 1; j <= i; j++) {
+      print(j);
+    }
+    print("\n");
+  }
+}
+
+Q15)
+
+void main() {
+  int start = 1;
+  List<int> increments = [15, 16, 17, 18, 19, 20, 21, 22, 23];
+  int rows = 4;
+
+  for (int increment in increments) {
+    int num = start;
+    for (int i = 1; i <= rows; i++) {
+      String row = '';
+      for (int j = 1; j <= i; j++) {
+        row += '$num ';
+        num += increment;
+      }
+      print(row);
+    }
+    print(''); 
+  }
+}
+
+Q16)
+
+void main() {
+  int rows = 4;
+
+  for (int i = 1; i <= rows; i++) {
+    for (int j = 1; j <= i; j++) {
+      print('* ');
+    }
+    print('');
+  }
+}
+
+Q17)
+void main() {
+  bool a = true;
+  while (!a) {
+    print("Enter your email :: ");
+    String email = stdin.readLineSync();
+    print("Enter your password :: ");
+    String password = stdin.readLineSync();
+    if (email == "omerzafar@gmail.com" && password == "123") {
+      print("Login Successfully");
+      a = false;
+    } else {
+      print("Enter Again");
+    }
+  }
+}
+
+Q18)
+
+import 'dart:io';
+
+void main() {
+  
+  List<Map<String, String>> userCredentials = [
+    {"email": "omer@gmail.com", "password": "123"},
+    {"email": "ali@gmail.com", "password": "456"},
+    {"email": "maaz@gmail.com", "password": "789"}
+  ];
+
+  bool isLoggedIn = false;
+
+  while (!isLoggedIn) {
+    print("Enter your email: ");
+    String email = stdin.readLineSync().trim();
+
+    print("Enter your password: ");
+    String password = stdin.readLineSync().trim();
+
+    // Check if entered credentials match any of the predefined user credentials
+    for (var credentials in userCredentials) {
+      if (credentials["email"] == email && credentials["password"] == password) {
+        isLoggedIn = true;
+        break;
+      }
+    }
+
+    if (isLoggedIn) {
+      print("User login successful.");
+    } else {
+      print("Invalid credentials. Please try again.");
+    }
+  }
+}
+
+
+Q19)
+void main() {
+  List<int> numbers = [];
+
+  print("Enter a list of numbers (separated by commas): ");
+  String input = stdin.readLineSync()!;
+  List<String> numberStrings = input.split(',');
+
+  for (var numString in numberStrings) {
+    int number = int.parse(numString.trim());
+    numbers.add(number);
+  }
+
+  print("Numbers greater than 5:");
+
+  for (var number in numbers) {
+    if (number > 5) {
+      print(number);
+    }
+  }
+}
+
+Q20)
+
+void main() {
+  print("Enter a string: ");
+  String input = stdin.readLineSync()!.toLowerCase();
+  
+  int vowelCount = 0;
+
+  for (int i = 0; i < input.length; i++) {
+    String character = input[i];
+    
+    if (character == 'a' || character == 'e' || character == 'i' || character == 'o' || character == 'u') {
+      vowelCount++;
+    }
+  }
+
+  print("Number of vowels: $vowelCount");
+}
+
+Q21)
+
+void main() {
+  List<int> numbers = [5, 2, 9, 1, 7, 3];
+  
+  if (numbers.isEmpty) {
+    print("The list is empty.");
+  } else {
+    int min = numbers[0];
+    int max = numbers[0];
+  
+    for (int i = 1; i < numbers.length; i++) {
+      int currentNumber = numbers[i];
+      
+      if (currentNumber < min) {
+        min = currentNumber;
+      }
+      
+      if (currentNumber > max) {
+        max = currentNumber;
+      }
+    }
+  
+    print("Minimum element: $min");
+    print("Maximum element: $max");
+  }
+}
+
+Q22)
+
+void main() {
+  List<int> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  int sumOfSquares = 0;
+  
+  for (int number in numbers) {
+    if (number % 2 != 0) {
+      sumOfSquares += number * number;
+    }
+  }
+  
+  print("Sum of the squares of odd numbers: $sumOfSquares");
+}
+
+Q23)
+
+void main() {
+  List<Map<String, dynamic>> studentDetails = [
+    {"name": "Alice", "marks": [80, 90, 95], "section": "A", "rollNumber": 1},
+    {"name": "Bob", "marks": [70, 85, 92], "section": "B", "rollNumber": 2},
+    {"name": "Charlie", "marks": [85, 80, 78], "section": "A", "rollNumber": 3},
+    {"name": "David", "marks": [95, 92, 88], "section": "B", "rollNumber": 4},
+  ];
+
+  for (var student in studentDetails) {
+    String name = student["name"];
+    List<int> marks = student["marks"];
+    String section = student["section"];
+    int rollNumber = student["rollNumber"];
+
+    double averageScore = marks.reduce((a, b) => a + b) / marks.length;
+    String grade;
+
+    if (averageScore >= 90) {
+      grade = "A";
+    } else if (averageScore >= 80) {
+      grade = "B";
+    } else if (averageScore >= 70) {
+      grade = "C";
+    } else if (averageScore >= 60) {
+      grade = "D";
+    } else {
+      grade = "F";
+    }
+
+    print("Student Name: $name");
+    print("Roll Number: $rollNumber");
+    print("Section: $section");
+    print("Grade: $grade");
+    print("-----------------------");
+  }
+}
+
+Q24)
+
+void main() {
+  List<int> numbers = [5, -2, 9, -1, -7, 3, -4];
+  int negativeCount = 0;
+  int negativeSum = 0;
+  double negativeAverage = 0.0;
+
+  for (int number in numbers) {
+    if (number < 0) {
+      negativeCount++;
+      negativeSum += number;
+    }
+  }
+
+  if (negativeCount > 0) {
+    negativeAverage = negativeSum / negativeCount;
+  }
+
+  print("Average of negative numbers: $negativeAverage");
+}
+
+Q25)
+
+void main() {
+  List<int> numbers = [4, 7, 10, 13, 16, 19, 22, 25, 28, 31];
+  List<int> primeNumbers = [];
+
+  for (int number in numbers) {
+    if (isPrime(number)) {
+      primeNumbers.add(number);
+    }
+  }
+
+  print("Input: $numbers");
+  print("Output: $primeNumbers");
+}
+
+bool isPrime(int number) {
+  if (number <= 1) {
+    return false;
+  }
+
+  for (int i = 2; i <= number / 2; i++) {
+    if (number % i == 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
